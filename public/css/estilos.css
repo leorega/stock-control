@@ -1,0 +1,9 @@
+.principal {
+    background-image: url(../imagenes/parrilla.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    height: 100vh;
+}
+
