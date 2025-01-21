@@ -2,7 +2,7 @@
 
 <?= $this->section('dinamico'); ?>
 
-<div class="border border-primary rounded px-5 w-75 mx-auto bg-light bg-opacity-50 shadow text-center">
+<div class="border border-primary rounded px-5 w-75 mx-auto bg-primary bg-opacity-25 shadow text-white text-center">
 
     <h4 class="my-3">Listado de Productos</h4>
 
@@ -12,7 +12,8 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Categoría</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Precio</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +23,7 @@
                         <td><?= $producto['nombre'] ?></td>
                         <td><?= $producto['categoria'] ?></td>
                         <td><?= $producto['stock'] ?></td>
-                        <td><?= $producto['precio'] ?></td>
+                        <td>$ <?= $producto['precio'] ?></td>
                     </tr>
                 <?php } ?>
             <?php } ?>
