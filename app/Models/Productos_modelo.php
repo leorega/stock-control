@@ -12,6 +12,7 @@ class Productos_modelo extends Model
     protected $allowedFields = ['nombre', 'id_categoria', 'precio', 'stock'];
 
     protected $useTimestamps = true;
+    protected $useSoftDeletes = true;
 
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
@@ -21,7 +22,8 @@ class Productos_modelo extends Model
     {
         return $this->db->table('productos')
             ->select('productos.id, productos.nombre, categorias.nombre as categoria, productos.precio, productos.stock')
-            ->join('categorias', 'productos.id_categoria = categorias.id')
+            ->join('categorias', 'productos.id_categoria = categorias.id', 'left')
+            ->where('productos.deleted_at', null)
             ->get()->getResultArray();
     }
 }
