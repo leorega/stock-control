@@ -2,52 +2,27 @@
 
 <?= $this->section('dinamico'); ?>
 
-<div class="border border-primary rounded px-1 w-75 mx-auto bg-primary bg-opacity-50 shadow text-white text-center">
+<div class="border border-info rounded px-1 w-75 mx-auto bg-info bg-opacity-50 shadow text-white text-center">
 
-    <h4 class="my-3">Listado de Productos</h4>
+    <h4 class="my-3">Informes</h4>
 
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Categoría</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Precio unitario</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Fecha y Hora</th>
+                <th scope="col">Tipo Movimiento</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($productos)) { ?>
-                <?php foreach ($productos as $producto) { ?>
+            <?php if (!empty($movimientos)) { ?>
+                <?php foreach ($movimientos as $producto) { ?>
                     <tr>
-                        <td class="fw-bold"><?= $producto['nombre'] ?></td>
-                        <td><?= $producto['categoria'] ?></td>
-                        <td><?= $producto['stock'] ?></td>
-                        <td>$ <?= $producto['precio'] ?></td>
-                        <td>
-                            <!-- Botón de editar -->
-                            <a
-                                href="<?= base_url('editar-producto/' . $producto['id']) ?>"
-                                class="btn btn-primary"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Editar producto">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <!-- Botón de eliminar -->
-                            <button
-                                class="btn btn-danger"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalEliminar"
-                                data-id="<?= $producto['id'] ?>"
-                                data-nombre="<?= $producto['nombre'] ?>">
-                                <i
-                                    class="bi bi-trash"
-                                    data-toggle="tooltip"
-                                    data-placement="top"
-                                    title="Eliminar producto"></i>
-                            </button>
-                        </td>
+                        <td><?= date('d/m/Y H:i', strtotime($producto['fecha'])) ?></td>
+                        <td><?= $producto['tipo'] ?></td>
+                        <td><?= $producto['producto'] ?></td>
+                        <td><?= $producto['cantidad'] ?></td>
                     </tr>
                 <?php } ?>
             <?php } ?>

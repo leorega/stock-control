@@ -334,4 +334,17 @@ class ProductosController extends BaseController
             return redirect()->back()->with('error', 'Ocurrió un error al editar el producto.');
         }
     }
+
+    public function informesProductos()
+    {
+        $MovimientosModelo = new \App\Models\Movimientos_modelo();
+
+        $movimientos = $MovimientosModelo->devolverMovimientosConProducto();
+
+        $data = [
+            'movimientos' => $movimientos
+        ];
+
+        return view('informes_productos', $data);
+    }
 }
