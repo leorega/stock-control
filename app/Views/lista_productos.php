@@ -2,7 +2,7 @@
 
 <?= $this->section('dinamico'); ?>
 
-<div class="border border-primary rounded px-5 w-75 mx-auto bg-primary bg-opacity-50 shadow text-white text-center">
+<div class="border border-primary rounded px-1 w-75 mx-auto bg-primary bg-opacity-50 shadow text-white text-center">
 
     <h4 class="my-3">Listado de Productos</h4>
 
@@ -100,6 +100,10 @@
         <?php endif; ?>
 
         $('.table').DataTable({
+            "scrollY": "45vh",
+            "scrollCollapse": true,
+            "paging": false,
+            "info": false,
             "language": {
                 "lengthMenu": "Mostrar _MENU_ productos por página",
                 "zeroRecords": "No se encontraron resultados",
